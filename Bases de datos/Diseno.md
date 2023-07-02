@@ -28,3 +28,25 @@ _Se encierran en una linea de mayor grosor que los demas elementos y corresponde
 ### Agregacion
 
 _Se encapusla la relacion y sus entidades correspondientes en una entidad virtual._
+
+## Transformar el modelo E/R al modelo relacional
+
+1. Las llaves de las entidades involucradas en una relacion forman una super llave para esa relacion.
+2. Se crea la tabla y ya tenemos anotado el nombre de esta en el diagrama junto con sus atributos y su llave..
+3. Para las relaciones estas se crean con las dos llaves de las entidades que relaciona y se marca cada una por separado como FOREIGN KEY(llave1) REFERENCES <Tabla(llavetabla)> y la llave primaria como el par que contiene ambas llaves.
+
+_Es importante destacar que no se pueden insertar valores donde la llave foranea no esta en la tabla referenciada (no se puede si la tabla referenciada no contiene el valor). _
+
+_Lo mismo si se borra una tupla que contiene una llave foranea referenciada en la otra tabla, por default no se permite la eliminacion, pero tambien se puede propagar la eliminacion (tambien se elimina la tupla referenciada) o se deja la llave con el valor de null. _
+
+_Las entidades debiles conviene crearlas con ON DELETE CASCADE, ya que estas solo existen si es que la llave de la otra tabla existe. _
+
+### Restricciones de integridad
+
+1. De valores nulos: un valor puede o no ser nulo
+2. Unicidad: Dado un atributo, no pueden existir dos tuplas con el mismo valor.
+3. De llave: es un valor unico y no puede ser NULL
+4. De referencia: Si se trabaja en una compañía, esta deve existir (LLaves foraneas).
+5. De dominio: Se debe especificar el rango de los datos.
+
+_Para restringir el dominio se utiliza CHECK y se coloca la condicion entre parentesis: CHECK(condicion). _
